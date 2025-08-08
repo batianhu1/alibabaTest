@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33c23bd0-15a2-4c50-8898-35c2a05605e7" name="更改" comment="" />
+    <list default="true" id="33c23bd0-15a2-4c50-8898-35c2a05605e7" name="更改" comment="简单聊天">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +18,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -34,6 +39,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.AlibabaaiApplication.executor": "Debug",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "D:/spring ai alibaba学习/spring-ai-alibaba/pom.xml",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -82,11 +88,24 @@
       <workItem from="1754568405061" duration="1520000" />
       <workItem from="1754616244218" duration="44000" />
       <workItem from="1754616331616" duration="1114000" />
-      <workItem from="1754617586999" duration="6499000" />
+      <workItem from="1754617586999" duration="7716000" />
     </task>
+    <task id="LOCAL-00001" summary="简单聊天">
+      <option name="closed" value="true" />
+      <created>1754632763450</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1754632763450</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="简单聊天" />
+    <option name="LAST_COMMIT_MESSAGE" value="简单聊天" />
   </component>
 </project>
