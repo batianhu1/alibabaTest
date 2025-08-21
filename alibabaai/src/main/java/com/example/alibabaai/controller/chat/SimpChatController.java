@@ -1,4 +1,4 @@
-package com.example.alibabaai.controller;
+package com.example.alibabaai.controller.chat;
 
 import com.alibaba.cloud.ai.dashscope.chat.DashScopeChatOptions;
 import com.alibaba.cloud.ai.dashscope.chat.MessageFormat;
@@ -12,7 +12,6 @@ import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.content.Media;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.util.MimeTypeUtils;
 import org.springframework.web.bind.annotation.*;
@@ -25,11 +24,8 @@ public class SimpChatController {
     // 默认ChatClient
     private final ChatClient chatClient;
 
-    /**
-     * 构造函数注入多个ChatClient实例
-     */
-    public SimpChatController(
-            ChatModel chatModel) {
+
+    public SimpChatController(ChatModel chatModel) {
 
         // 构建默认ChatClient
         this.chatClient = ChatClient.builder(chatModel)
@@ -42,6 +38,12 @@ public class SimpChatController {
                 .build();
                 
     }
+
+    // 也可以使用如下的方式注入 ChatClient 这种方式需要配置 #spring.ai.chat.client.enabled=false
+    // public DashScopeChatClientController(ChatClient.Builder chatClientBuilder) {
+    //
+    //  	this.dashScopeChatClient = chatClientBuilder.build();
+    // }
 
     @GetMapping("/chat")
     @ApiOperation("聊天-默认模型")
