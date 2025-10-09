@@ -2,7 +2,6 @@ package com.example.alibabaai.controller.mcp;
 
 import io.swagger.annotations.Api;
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.mcp.AsyncMcpToolCallback;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +17,8 @@ public class McpController {
 
     private final ChatClient chatClient;
 
-    public McpController(ChatClient.Builder builder, AsyncMcpToolCallback mcpToolCallback) {
-        this.chatClient = builder.defaultToolCallbacks(mcpToolCallback).build();
+    public McpController(ChatClient mcpEnabledChatClient) {
+        this.chatClient = mcpEnabledChatClient;
     }
 
 

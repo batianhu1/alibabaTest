@@ -17,19 +17,43 @@
  */
 package com.example.alibabaai.config.mcp;
 
-import io.modelcontextprotocol.client.McpAsyncClient;
 import io.modelcontextprotocol.spec.McpSchema;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.mcp.AsyncMcpToolCallback;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
+/**
+ * ChatClient配置类 - 集成MCP工具回调
+ * 
+ * 本配置类负责：
+ * 1. 配置支持MCP工具调用的ChatClient
+ * 2. 集成工具回调处理器
+ * 3. 为AI模型提供工具调用能力
+ */
 @Configuration
+@ConditionalOnProperty(name = "spring.ai.mcp.client.toolcallback.enabled", havingValue = "true", matchIfMissing = false)
 public class ChatClientConfig {
+    
+    private static final Logger logger = LoggerFactory.getLogger(ChatClientConfig.class);
+    /**
+     * 支持MCP工具调用的ChatClient
+     * 
+     * @param builder ChatClient构建器
+     * @param mcpToolCallback MCP工具回调处理器
+     * @return 配置好的ChatClient
+     */
     @Bean
-    public AsyncMcpToolCallback mcpToolCallback(
-            McpAsyncClient mcpAsyncClient,
-            McpSchema.Tool startNotificationTool
+    public ChatClient mcpEnabledChatClient(
+            ChatClient.Builder builder, 
+            AsyncMcpToolCallback mcpToolCallback
     ) {
-        return new AsyncMcpToolCallback(mcpAsyncClient, startNotificationTool);
+        logger.info("Creating MCP-enabled ChatClient with tool callback support");
+        return builder.defaultToolCallbacks(mcpToolCallback).build();
     }
 }
